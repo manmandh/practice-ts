@@ -1,0 +1,29 @@
+@use "variables" as *;
+@use "functions" as *;
+
+@mixin font($font-family, $font-size, $font-weight: normal) {
+  font-family: $font-family;
+  font-size: $font-size;
+  font-weight: $font-weight;
+}
+
+// Full center
+@mixin center-element {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// Flex
+@mixin flex($display: flex, $direction: false, $align: false, $justify: false) {
+  display: $display;
+  @if $direction {
+    flex-direction: $direction;
+  }
+  @if $justify {
+    justify-content: $justify;
+  }
+  @if $align {
+    align-items: $align;
+  }
+}
