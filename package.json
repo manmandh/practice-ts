@@ -18,8 +18,8 @@
   },
   "scripts": {
     "prepare": "husky install",
-    "start": "npx tsc && node ./dist/main.js",
-    "dev": "parcel src/resources/index.html"
+    "start": "parcel src/resources/index.html",
+    "build": "parcel build src/resources/index.html src/resources/assets/icons/* src/resources/assets/images/*"
   },
   "dependencies": {
     "json-server": "^1.0.0-beta.1"
