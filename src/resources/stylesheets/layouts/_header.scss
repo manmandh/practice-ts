@@ -1,1 +1,102 @@
 @use "../abstracts/" as *;
+.header {
+  max-width: pxToRem(1180);
+  @include flex(flex, row, center, flex-end);
+  padding: pxToRem(32) 0;
+  gap: pxToRem(40);
+
+  @media screen and (max-width: 654px) {
+    gap: 20px;
+  }
+
+  &__search {
+    @include flex(flex, row, false, center);
+    gap: 10px;
+    &--input {
+      border: 1px solid $border-white;
+      border-radius: 5px;
+      outline: none;
+      @include font($primary-font, 14px, 600);
+      display: none;
+      opacity: 0;
+      &.show {
+        display: block;
+        opacity: 1;
+      }
+    }
+    &--button {
+      padding: 5px;
+      background-color: $blue-color;
+      color: $white-color;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      outline: none;
+      transition: background-color 0.3s;
+      &:hover {
+        background-color: $dark-blue;
+      }
+    }
+  }
+
+  .noti {
+    &-list {
+      position: absolute;
+      background-color: $white-color;
+      padding: 10px;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      max-width: pxToRem(300);
+      display: none;
+      opacity: 0;
+      transition: 0.25s linear;
+    }
+    &-btn {
+      position: relative;
+      &:hover {
+        .noti-list {
+          opacity: 1;
+          display: block;
+          max-height: pxToRem(500);
+          overflow: auto;
+        }
+      }
+    }
+    &-para {
+      padding: 10px 15px;
+      cursor: pointer;
+      border-radius: 5px;
+      width: pxToRem(250);
+      @include font($primary-font, 14px, 500);
+      &:hover {
+        background-color: $gray;
+      }
+    }
+  }
+  &__select {
+    text-transform: uppercase;
+    padding: 8px 16px;
+    border-radius: 8px;
+    @include font($primary-font, 14px, 600);
+    outline: none;
+    @media screen and (max-width: 400px) {
+      -webkit-appearance: none;
+      padding: 4px 8px;
+      text-align: center;
+    }
+  }
+  &__button {
+    text-transform: uppercase;
+    padding: 8px 16px;
+    border-radius: 8px;
+    outline: none;
+    border: 1px solid $dark-gray;
+    background-color: $dark-gray;
+    a {
+      @include font($primary-font, 14px, 600);
+      color: $white-color;
+      text-decoration: none;
+    }
+  }
+}
