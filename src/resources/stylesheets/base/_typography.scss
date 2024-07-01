@@ -4,3 +4,8 @@
   font-family: "Open Sans", sans-serif;
   src: url(./../assets/fonts/OpenSans_Condensed-Regular.ttf);
 }
+
+body {
+  background-color: $white-color;
+  @include font($primary-font, pxToRem(16), 400);
+}

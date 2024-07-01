@@ -1,14 +1,13 @@
-type RouteConfig = {
+import { Controller, Service, View } from "./utils/common";
+
+export type RouteConfig = {
   path: string;
-  element:
-    | string
-    | HTMLElement
-    | ((params: { [key: string]: string }) => string | HTMLElement);
-  controller: () => void;
-  view: () => void;
-  service: () => void;
-  params: string[];
-  pattern: RegExp;
+  element: string;
+  params?: string[];
+  controller: Controller;
+  view: View;
+  service: Service;
+  pattern?: RegExp;
 };
 
 class Router {
@@ -21,18 +20,9 @@ class Router {
   }
 
   // Define a new route with a regular expression pattern
-  define(
-    path: string,
-    element:
-      | string
-      | HTMLElement
-      | ((params: { [key: string]: string }) => string | HTMLElement),
-    controller: () => void,
-    view: () => void,
-    service: () => void,
-    params: string[] = []
-  ): void {
+  define(routerConfig: RouteConfig): void {
     // Convert path to a regex pattern
+    const { path, element, controller, view, service, params } = routerConfig;
     const pattern = new RegExp(
       "^" + path.replace(/:[^\s/]+/g, "([\\w-]+)") + "$"
     );
@@ -51,31 +41,30 @@ class Router {
 
   // Listen for changes in the URL
   listen(): void {
-    const path = window.location.pathname;
-
     // Find matching route
     const route = this.findRoute();
 
     if (route) {
-      const params = this.extractParams(path, route.pattern, route.params);
-      const element =
-        typeof route.element === "function"
-          ? route.element(params)
-          : route.element;
+      const root = document.getElementById("root")!;
 
-      const root = document.getElementById("root");
+      root.innerHTML = route.element;
 
-      if (root) {
-        root.innerHTML = "";
+      // const element =
+      //   typeof route.element === "function"
+      //     ? route.element(params)
+      //     : route.element;
 
-        if (typeof element === "string") {
-          root.innerHTML = element;
-        } else {
-          root.appendChild(element);
-        }
-      } else {
-        console.error("Root element not found.");
-      }
+      // if (root) {
+      //   root.innerHTML = "";
+
+      //   if (typeof element === "string") {
+      //     root.innerHTML = element;
+      //   } else {
+      //     root.appendChild(element);
+      //   }
+      // } else {
+      //   console.error("Root element not found.");
+      // }
     } else {
       console.error("No matching route found.");
     }
@@ -83,7 +72,7 @@ class Router {
 
   findRoute(): RouteConfig | undefined {
     const path = window.location.pathname;
-    return this.routes.find((route) => route.pattern.test(path));
+    return this.routes.find((route) => route?.pattern?.test(path));
   }
 
   // Extract parameters from the path

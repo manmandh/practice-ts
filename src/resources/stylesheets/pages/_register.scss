@@ -1,0 +1,120 @@
+@use "../abstracts/" as *;
+
+.resform {
+  @include flex(flex, row, center, space-between);
+  max-width: pxToRem(1440);
+  margin: 0 auto;
+  padding-right: pxToRem(82);
+  @include responsive("medium") {
+    flex-direction: column;
+    gap: 80px;
+  }
+
+  @include responsive("medium") {
+    padding: 0 pxToRem(165);
+  }
+
+  @media screen and (max-width: 998px) {
+    padding: 0 25px;
+  }
+
+  &__left {
+    position: relative;
+    z-index: 1;
+    &--logo {
+      position: absolute;
+      z-index: 2;
+      top: 10%;
+      left: 50%;
+      transform: translateX(-50%);
+      @media screen and (max-width: 520px) {
+        max-width: 100px;
+      }
+    }
+    &--bigshoes {
+      width: 100%;
+    }
+  }
+  &__right {
+    padding: 0 pxToRem(40);
+    max-width: pxToRem(560);
+    @include flex(flex, column);
+    gap: 24px;
+
+    h1 {
+      margin-bottom: 8px;
+      color: $dark-gray;
+      @include font($primary-font, pxToRem(36), 600);
+      @media screen and (max-width: 420px) {
+        font-size: 24px;
+      }
+    }
+
+    p {
+      @include font($primary-font, 20px, 400);
+      @media screen and (max-width: 420px) {
+        font-size: 16px;
+      }
+    }
+
+    &--icon {
+      border-radius: 12px;
+      border: 1px solid $dark-gray;
+      outline: none;
+      padding: pxToRem(16) pxToRem(48);
+      cursor: pointer;
+      @media screen and (max-width: 420px) {
+        padding: 8px 16px;
+      }
+    }
+    &--social {
+      @include flex(flex, row, center, space-between);
+      gap: 24px;
+    }
+    &--input {
+      @include flex(flex, column);
+      gap: 20px;
+      h2 {
+        @include font($primary-font, 24px, 600);
+      }
+      input {
+        padding: 10px 16px;
+        border-radius: 8px;
+        font-size: 16px;
+      }
+      #para {
+        @include font($dark-gray, 12px, 400);
+        letter-spacing: 0.4px;
+      }
+    }
+    &--checkbox {
+      @include font($dark-gray, 16px, 600);
+      @include flex(flex, row, start);
+      accent-color: $dark-gray;
+      gap: 8px;
+    }
+
+    button {
+      background-color: $dark-gray;
+      color: $white-color;
+      border: none;
+      border-radius: 8px;
+      padding: 8px 16px;
+      cursor: pointer;
+      @include flex(inline-flex, row, center, space-between);
+      @include font($primary-font, 14px, 450);
+      transition: transform 0.2s ease;
+      &:hover {
+        outline: none;
+        transform: translateX(5px);
+        background-color: $button-hover;
+        font-weight: 800;
+      }
+    }
+
+    @include responsive("medium") {
+      max-width: 100%;
+      padding: 0 0 pxToRem(50) 0;
+    }
+  }
+}

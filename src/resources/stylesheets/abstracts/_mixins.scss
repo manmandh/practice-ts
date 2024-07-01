@@ -1,0 +1,64 @@
+@use "variables" as *;
+@use "functions" as *;
+
+@mixin font($font-family, $font-size, $font-weight: normal) {
+  font-family: $font-family;
+  font-size: $font-size;
+  font-weight: $font-weight;
+}
+
+// Full center
+@mixin center-element {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// Flex
+@mixin flex($display: flex, $direction: false, $align: false, $justify: false) {
+  display: $display;
+  @if $direction {
+    flex-direction: $direction;
+  }
+  @if $justify {
+    justify-content: $justify;
+  }
+  @if $align {
+    align-items: $align;
+  }
+}
+
+@mixin medium {
+  @media screen and (max-width: map-get($break-point, "medium")) {
+    @content;
+  }
+}
+
+@mixin large {
+  @media screen and (max-width: map-get($break-point, "large")) {
+    @content;
+  }
+}
+@mixin small {
+  @media screen and (max-width: map-get($break-point, "small")) {
+    @content;
+  }
+}
+
+@mixin responsive($break-point) {
+  @if $break-point == medium {
+    @include medium() {
+      @content;
+    }
+  }
+  @if $break-point == large {
+    @include large() {
+      @content;
+    }
+  }
+  @if $break-point == small {
+    @include small() {
+      @content;
+    }
+  }
+}
