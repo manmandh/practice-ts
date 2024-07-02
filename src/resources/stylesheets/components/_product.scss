@@ -1,0 +1,245 @@
+@use "../abstracts/" as *;
+
+.product {
+  padding: 24px;
+  background-color: $white-color;
+  border-radius: 16px;
+  @include flex(flex, row);
+  gap: pxToRem(47);
+
+  @include responsive("large") {
+    @include flex(flex, column);
+  }
+
+  @include responsive("small") {
+    padding: 12px;
+  }
+
+  &-right {
+    @include flex(flex, column, center, center);
+    gap: 40px;
+  }
+
+  &--btn {
+    padding: 16px;
+    border: 1px solid $dark-gray;
+    border-radius: 8px;
+    @include flex(flex, row);
+    gap: 16px;
+
+    @include responsive("small") {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+    }
+
+    @media screen and (max-width: 420px) {
+      grid-template-columns: none;
+    }
+
+    button {
+      border-radius: 20px;
+      background: $neutral-gray;
+      padding: 4px 12px;
+
+      a {
+        color: $white-color;
+        text-decoration: none;
+        @include font($primary-font, 14px, 500);
+        letter-spacing: 0.25px;
+      }
+    }
+  }
+  &__form {
+    @include flex(flex, column);
+    gap: 24px;
+    &--item {
+      @include flex(flex, column);
+      gap: 16px;
+    }
+    &--row {
+      @include flex(flex, row, false, space-between);
+      gap: 24px;
+      @media screen and (max-width: 860px) {
+        flex-direction: column;
+      }
+      & > * {
+        flex: 1;
+      }
+    }
+    h3 {
+      @include font($primary-font, 20px, 700);
+    }
+    input,
+    textarea {
+      padding: 10px 16px;
+      border-radius: 8px;
+      border: none;
+      outline: none;
+      border: 1px solid $dark-gray;
+      @include font($primary-font, 16px, 400);
+      color: $neutral-gray;
+    }
+  }
+
+  &__image {
+    @include flex(flex, column);
+    gap: 24px;
+    figure {
+      padding: 8px;
+      background-color: $white-gray;
+      @include responsive("small") {
+        padding: 0;
+        img {
+          width: 80%;
+        }
+      }
+    }
+    @include responsive("small") {
+      gap: 12px;
+    }
+  }
+
+  &__gallery {
+    @include flex(flex, column);
+    gap: 16px;
+    padding: 0 24px;
+
+    h3 {
+      color: $dark-gray;
+      @include font($primary-font, 20px, 700);
+    }
+    &--img {
+      padding: 16px;
+      border-radius: 8px;
+      border: 1px dashed $dark-gray;
+      text-align: center;
+
+      p {
+        color: $gray-main;
+      }
+
+      #para {
+        @include flex(flex, column, center, center);
+        #imageUpload {
+          margin-top: 20px;
+        }
+      }
+    }
+  }
+
+  &__thumbnail {
+    @include flex(flex, column);
+    gap: 12px;
+
+    &--list {
+      @include flex(flex, row, center);
+      justify-content: space-around;
+      .img-preview {
+        width: 64px;
+        height: 64px;
+        @media screen and (max-width: 380px) {
+          width: 30px;
+          height: 30px;
+        }
+      }
+      @media screen and (max-width: 380px) {
+        img {
+          width: 20px;
+          height: 20px;
+        }
+      }
+    }
+
+    &--detail {
+      @include flex(flex, column);
+      gap: 16px;
+      @include font($primary-font, 16px, 600);
+
+      span {
+        border-radius: 8px;
+        background-color: $border-product;
+        height: 4px;
+        width: 100%;
+      }
+
+      @media screen and (max-width: 380px) {
+        @include font($primary-font, 12px, 500);
+        span {
+          height: 3px;
+        }
+      }
+    }
+  }
+
+  &__action {
+    @include flex(flex, row, center);
+    gap: 16px;
+
+    @media screen and (max-width: 560px) {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: 25px;
+    }
+
+    @media screen and (max-width: 400px) {
+      grid-gap: 10px;
+    }
+
+    button {
+      text-transform: uppercase;
+      border-radius: 8px;
+      border: none;
+      outline: none;
+      padding: 8px 16px;
+
+      @media screen and (max-width: 475px) {
+        padding: 6px 10px;
+      }
+
+      @media screen and (max-width: 420px) {
+        padding: 4px 12px;
+      }
+    }
+    #btn-add {
+      color: $white-color;
+      background-color: $dark-gray;
+      @extend .font-size;
+    }
+    #btn-update {
+      color: $white-color;
+      background-color: $dark-gray;
+      @extend .font-size;
+    }
+    #btn-delete {
+      color: $white-color;
+      background-color: $red-color;
+      @extend .font-size;
+    }
+    #btn-cancel {
+      color: $dark-gray;
+      border: 1px solid $dark-gray;
+      background-color: $white-color;
+      @extend .font-size;
+      &:hover {
+        border: none;
+        outline: none;
+        color: $white-color;
+      }
+    }
+    .font-size {
+      cursor: pointer;
+      transition: transform 0.2s ease;
+      @include font($primary-font, 14px, 600);
+      @media screen and (max-width: 420px) {
+        font-size: 12px;
+      }
+      &:hover {
+        outline: none;
+        transform: translateX(5px);
+        background-color: $button-hover;
+        font-weight: 800;
+      }
+    }
+  }
+}
