@@ -1,0 +1,18 @@
+@use "../abstracts" as *;
+
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+.main {
+  max-width: pxToRem(1180);
+  overflow-x: auto;
+  flex-grow: 1;
+}
+
+.body__footer {
+  background-color: $gray;
+  padding: 24px 24px;
+  width: 100%;
+}
