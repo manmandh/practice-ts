@@ -1,0 +1,153 @@
+@use "../abstracts" as *;
+
+.table {
+  &-content {
+    @include responsive("small") {
+      width: 100%;
+      overflow: auto;
+    }
+  }
+  &__header {
+    h2 {
+      @include font($primary-font, 24px, 700);
+    }
+    p {
+      @include font($primary-font, 16px, 500);
+      margin-bottom: 24px;
+    }
+    &--btn {
+      text-align: right;
+    }
+    select {
+      border-radius: 8px;
+      background: $white-color;
+      padding: 16px;
+      outline: none;
+      @include font($primary-font, 14px, 600);
+    }
+  }
+}
+
+table {
+  width: 100%;
+  margin: 16px auto 0;
+  background-color: $white-color;
+  border-collapse: collapse;
+  color: $shoes-table;
+  @include font($primary-font, 16px, 700);
+
+  tr {
+    border-bottom: 0.5px solid $border-color;
+  }
+
+  input {
+    accent-color: $shoes-table;
+  }
+
+  .row {
+    @include flex(flex, row, center);
+    gap: 8px;
+    img {
+      width: 25px;
+      height: 25px;
+      border-radius: 15px;
+    }
+  }
+
+  th {
+    background-color: $white-color;
+  }
+  td {
+    padding: 20px 10px;
+    word-wrap: break-word;
+    text-align: center;
+    .stock {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: $blue-color;
+      pointer-events: none;
+    }
+
+    .sold-out {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      pointer-events: none;
+      background-color: $yellow-color;
+      @media screen and (max-width: 1128px) {
+        width: 11px;
+        height: 10px;
+      }
+      @media screen and (max-width: 890px) {
+        width: 12px;
+        height: 10px;
+      }
+      @media screen and (max-width: 705px) {
+        width: 14px;
+        height: 10px;
+      }
+      @media screen and (max-width: 670px) {
+        width: 15px;
+        height: 10px;
+      }
+    }
+  }
+}
+
+.stock-wrapper {
+  display: inline-flex;
+  gap: 10px;
+  align-items: center;
+
+  p {
+    pointer-events: none;
+  }
+}
+
+.table-title {
+  padding: 16px 0;
+  border-bottom: 1px $border-color solid;
+  p {
+    @include font($primary-font, 20px, 700);
+  }
+}
+
+@media (max-width: 1032px) {
+  table {
+    font-size: 14px;
+  }
+
+  table th,
+  table td {
+    padding: 10px 5px;
+  }
+
+  table td img {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+@media (max-width: 375px) {
+  .table-title {
+    font-size: 16px;
+  }
+
+  table {
+    font-size: 12px;
+    overflow: scroll;
+  }
+
+  table th,
+  table td {
+    padding: 5px;
+  }
+
+  table img {
+    width: 15px;
+    height: 15px;
+  }
+}

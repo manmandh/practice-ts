@@ -20,9 +20,12 @@
   "scripts": {
     "prepare": "husky install",
     "start": "parcel src/resources/index.html",
-    "build": "parcel build src/resources/index.html src/resources/assets/icons/* src/resources/assets/images/*"
+    "build": "parcel build src/resources/index.html src/resources/assets/icons/* src/resources/assets/images/*",
+    "watchDB": "json-server --watch db.json --port 3021"
   },
   "dependencies": {
+    "@types/axios": "^0.14.0",
+    "axios": "^1.7.2",
     "json-server": "^1.0.0-beta.1"
   }
 }
