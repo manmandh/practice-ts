@@ -1,0 +1,422 @@
+{
+  "shoes": [
+    {
+      "image": "/avt-1.3cd62d23.jpg",
+      "id": 1,
+      "brand": "Bessie Cooper",
+      "name": "Adidas Ultra boost",
+      "category": "PayPal",
+      "status": true,
+      "amount": "445",
+      "price": "345",
+      "description": "efffffff",
+      "salePrice": "36464",
+      "true": ""
+    },
+    {
+      "image": "/avt-2.3bdfd00a.jpg",
+      "id": 2,
+      "brand": "Bessie Cooper",
+      "name": "Adidas Ultra boost",
+      "category": "Pioneer",
+      "status": false,
+      "amount": 70,
+      "price": 169,
+      "description": "abcde",
+      "salePrice": 23
+    },
+    {
+      "image": "/avt-3-7.60b9b0ce.jpg",
+      "id": 3,
+      "brand": "Bressi Cooper",
+      "name": "adidas",
+      "category": "Cash",
+      "status": true,
+      "amount": 70,
+      "price": 169,
+      "description": "abcde",
+      "salePrice": 23
+    },
+    {
+      "image": "/avt-4.3ec10eec.jpg",
+      "id": 4,
+      "brand": "Bressi Cooper",
+      "name": "adidas",
+      "category": "PayPal",
+      "status": false,
+      "amount": 70,
+      "price": 169,
+      "description": "abcde",
+      "salePrice": 23
+    },
+    {
+      "image": "/avt-5.2cf0b3dd.jpg",
+      "id": 5,
+      "brand": "Bressi Cooper",
+      "name": "adidas",
+      "category": "Cash",
+      "status": true,
+      "amount": 70,
+      "price": 169,
+      "description": "abcde",
+      "salePrice": 23
+    },
+    {
+      "image": "/avt-6.46dd4531.jpg",
+      "id": 6,
+      "brand": "Bressi Cooper",
+      "name": "adidas",
+      "category": "Pioneer",
+      "status": false,
+      "amount": 70,
+      "price": 169,
+      "description": "abcde",
+      "salePrice": 23
+    },
+    {
+      "image": "/avt-3-7.60b9b0ce.jpg",
+      "id": 7,
+      "brand": "Bressi Cooper",
+      "name": "adidas",
+      "category": "Cash",
+      "status": false,
+      "amount": 70,
+      "price": 169,
+      "description": "abcde",
+      "salePrice": 23
+    },
+    {
+      "image": "/avt-8.cfd948c3.jpg",
+      "id": 8,
+      "brand": "Bressi Cooper",
+      "name": "adidas",
+      "category": "PayPal",
+      "status": true,
+      "amount": 70,
+      "price": 169,
+      "description": "abcde",
+      "salePrice": 23
+    },
+    {
+      "id": 14,
+      "brand": "hi i love dat",
+      "name": "ma",
+      "category": "d",
+      "status": false,
+      "image": "https://i.ibb.co/p19TCHV/dat.jpg",
+      "amount": "14",
+      "price": "45",
+      "salePrice": "45",
+      "description": "đ"
+    },
+    {
+      "id": 15,
+      "brand": "day la dat",
+      "name": "dattt",
+      "category": "fsf",
+      "status": true,
+      "image": "https://i.ibb.co/p19TCHV/dat.jpg",
+      "amount": "3",
+      "price": "3",
+      "salePrice": "565",
+      "description": "kakf"
+    },
+    {
+      "id": 55,
+      "brand": "15 promax",
+      "name": "iphone",
+      "category": "phone",
+      "status": "",
+      "image": "https://i.ibb.co/Gv96qsd/ip-white.webp",
+      "amount": "324",
+      "price": "334",
+      "salePrice": "22",
+      "description": "8gb ram "
+    },
+    {
+      "id": 99,
+      "brand": "Senaetr",
+      "name": "do homework part 2",
+      "category": "sg 5 ",
+      "status": true,
+      "image": "https://i.ibb.co/kcpNzhH/Screenshot-from-2024-02-22-13-44-12.png",
+      "amount": "99",
+      "price": "499",
+      "salePrice": "435",
+      "description": "fa wt 5"
+    },
+    {
+      "id": 88,
+      "brand": "Phone",
+      "name": "iphone",
+      "category": "Iphone Pro Max",
+      "status": "",
+      "image": "https://i.ibb.co/ZKM447v/ip14-3.webp",
+      "amount": "23",
+      "price": "35",
+      "salePrice": "22",
+      "description": "ís best for us"
+    },
+    {
+      "id": 34,
+      "brand": "ege",
+      "name": "iphone X",
+      "category": "egehw",
+      "status": true,
+      "image": "https://i.ibb.co/c30yP65/Screenshot-from-2024-02-24-20-12-36.png",
+      "amount": "34",
+      "price": "34",
+      "salePrice": "33",
+      "description": "feqfeefe"
+    },
+    {
+      "id": 28,
+      "brand": "ios",
+      "name": "iphone 14 promax",
+      "category": "phone",
+      "status": false,
+      "image": "https://i.ibb.co/3R370K0/ip14-black.webp",
+      "amount": "40",
+      "price": "$910",
+      "salePrice": "$870",
+      "description": "one of the most famous products attracts people\nram 8gb "
+    },
+    {
+      "id": 10,
+      "brand": "snearr",
+      "name": "product 10sr",
+      "category": "la ai",
+      "status": "",
+      "image": "https://i.ibb.co/52CPDSH/xiaomi3.webp",
+      "amount": "349",
+      "price": "434",
+      "salePrice": "45",
+      "description": "dthdh"
+    },
+    {
+      "id": 77,
+      "brand": "ADOfse",
+      "name": "adoeoaf",
+      "category": "Sneaker",
+      "status": "",
+      "image": "https://i.ibb.co/RNd23Ky/xiaomi-blue.webp",
+      "amount": "56",
+      "price": "$346",
+      "salePrice": "$356",
+      "description": "loaekjofjae aoejfoj"
+    },
+    {
+      "id": 45,
+      "brand": "ggb",
+      "name": "IPHONE",
+      "category": "fs",
+      "status": "",
+      "image": "https://i.ibb.co/LSyTxx0/xiaomi1.webp",
+      "amount": "44",
+      "price": "44",
+      "salePrice": "44",
+      "description": "edv"
+    },
+    {
+      "id": 78,
+      "brand": "dat 2",
+      "name": "ma",
+      "category": "dat",
+      "status": "",
+      "image": "https://i.ibb.co/Jr5Khmt/xiaomi3.webp",
+      "amount": "55",
+      "price": "55",
+      "salePrice": "55",
+      "description": "jj "
+    },
+    {
+      "id": 455,
+      "brand": "afe",
+      "name": "do homework part 2",
+      "category": "wfw",
+      "status": "",
+      "image": "https://i.ibb.co/TBPCCBk/xiaomi-green.webp",
+      "amount": "44",
+      "price": "44",
+      "salePrice": "44",
+      "description": "fwwf"
+    },
+    {
+      "id": 4554,
+      "brand": "wegWR",
+      "name": "do homework part 2",
+      "category": "qefe",
+      "status": "",
+      "image": "https://i.ibb.co/5xcJsbB/Screenshot-from-2024-03-01-18-32-38.png",
+      "amount": "34",
+      "price": "45",
+      "salePrice": "45",
+      "description": "edqf"
+    },
+    {
+      "id": 786,
+      "brand": "j8",
+      "name": "do homework part 2",
+      "category": "v7",
+      "status": "",
+      "image": "https://i.ibb.co/TBPCCBk/xiaomi-green.webp",
+      "amount": "7",
+      "price": "7",
+      "salePrice": "43",
+      "description": "juj "
+    },
+    {
+      "id": 777,
+      "brand": "ni9",
+      "name": "lap top",
+      "category": "h7",
+      "status": "",
+      "image": "https://i.ibb.co/MMnqvrz/xiaomi1.webp",
+      "amount": "66",
+      "price": "678",
+      "salePrice": "544",
+      "description": "jh8"
+    },
+    {
+      "id": 334,
+      "brand": "dat 3",
+      "name": "do homework part 4",
+      "category": "Dt 346",
+      "status": "",
+      "image": "https://i.ibb.co/LkxVQ8f/xiaomi-green.webp",
+      "amount": "34345",
+      "price": "54544",
+      "salePrice": "44",
+      "description": "qefjirfj"
+    },
+    {
+      "id": 788,
+      "brand": "Addias",
+      "name": "Sneaker",
+      "category": "Addidas",
+      "status": "",
+      "image": "https://i.ibb.co/rHK0KBD/Screenshot-from-2024-03-06-02-35-23.png",
+      "amount": "33",
+      "price": "23",
+      "salePrice": "33",
+      "description": "Super vippro from"
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "email": "admin@gmail.com",
+      "password": "Man@vku2233",
+      "firstName": "Marry",
+      "lastName": "Ryan",
+      "notifications": []
+    },
+    {
+      "id": 2,
+      "email": "test@gmail.com",
+      "password": "Man@vku2233",
+      "firstName": "Marry",
+      "lastName": "Ryan",
+      "notifications": []
+    },
+    {
+      "id": 3,
+      "email": "test@gmail.com",
+      "password": "Man@vku2233",
+      "firstName": "Marry",
+      "lastName": "Ryan",
+      "notifications": []
+    },
+    {
+      "firstName": "Marry",
+      "lastName": "Ryan",
+      "email": "admin@gmail.com",
+      "password": "Man@vku2233",
+      "id": 4,
+      "notifications": []
+    },
+    {
+      "firstName": "Marry",
+      "lastName": "Ryan",
+      "email": "15066570@dnu.edu.vn",
+      "password": "Man@vku2233",
+      "id": 5,
+      "notifications": []
+    },
+    {
+      "firstName": "Tran",
+      "lastName": "Man",
+      "email": "manmantran169@gmail.com",
+      "password": "Tranman@2004",
+      "id": 6,
+      "notifications": []
+    },
+    {
+      "firstName": "ffff",
+      "lastName": "ss",
+      "email": "mantm.22ite@vku.udn.vn",
+      "password": "Tam@1234",
+      "id": 7,
+      "notifications": []
+    },
+    {
+      "firstName": "Dat",
+      "lastName": "Ngo",
+      "email": "dat@gmail.com",
+      "password": "Dat@12345",
+      "id": 8,
+      "notifications": []
+    },
+    {
+      "firstName": "Hoa",
+      "lastName": "Tran",
+      "email": "hoa@gmail.com",
+      "password": "Hoa@12345",
+      "id": 9,
+      "notifications": []
+    },
+    {
+      "firstName": "Thuyen",
+      "lastName": "Yiwei",
+      "email": "yiwei@gmail.com",
+      "password": "Yiwei@12345",
+      "id": 10,
+      "notifications": [
+        "You added iphone 14 promax at 2/24/2024, 8:31:18 PM",
+        "You added Product 9 at 3/1/2024, 6:08:38 PM",
+        "You added product 10sr at 3/1/2024, 6:09:26 PM",
+        "You added adoeoaf at 3/1/2024, 8:52:40 PM",
+        "You added do homework part 3 at 3/5/2024, 8:58:53 AM",
+        "You added Sneaker at 3/6/2024, 6:59:41 PM",
+        "You added Sneaker at 3/6/2024, 7:00:23 PM",
+        "You added Sneaker at 3/6/2024, 7:00:55 PM",
+        "You added do homework part 2 at 3/6/2024, 7:19:15 PM"
+      ]
+    },
+    {
+      "id": "30406218",
+      "firstName": "Dat",
+      "lastName": "Nguyen",
+      "email": "datn@gmail.com",
+      "password": "Dat@12345",
+      "notifications": [
+        "You added do homework part 2 at 3/3/2024, 5:17:58 PM",
+        "You added iahiah at 3/3/2024, 5:19:02 PM",
+        "You added iahiah at 3/3/2024, 5:19:03 PM",
+        "You added do homework part 2 at 3/3/2024, 5:21:36 PM",
+        "You added do homework part 2 at 3/3/2024, 5:23:11 PM",
+        "You added do homework part 2 at 3/3/2024, 5:24:07 PM",
+        "You added do homework part 2 at 3/3/2024, 5:25:45 PM",
+        "You added lap top at 3/3/2024, 5:32:35 PM"
+      ]
+    },
+    {
+      "id": "39535939",
+      "firstName": "Ngoc",
+      "lastName": "Tran",
+      "email": "ngoc@gmai.com",
+      "password": "Ngoc@12345",
+      "notifications": []
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+@use "../abstracts/" as *;
+
+.pagination {
+  @include flex(flex, row);
+  margin-top: 24px;
+  gap: 16px;
+  @include responsive("small") {
+    gap: 5px;
+  }
+
+  button {
+    padding: 8px 16px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    border: 1px solid $dark-gray;
+    cursor: pointer;
+    transition: transform 0.1s ease-in;
+    @include responsive("small") {
+      padding: 6px 14px;
+    }
+
+    &:hover {
+      transform: translateY(2px);
+      background-color: $button-hover;
+      font-weight: 800;
+      color: $white-color;
+      border: none;
+    }
+
+    @media screen and (max-width: 960px) {
+      &.hide {
+        display: none;
+      }
+    }
+  }
+
+  #next {
+    @include flex(flex, row, center);
+  }
+
+  #current {
+    background-color: $dark-gray;
+    color: $white-color;
+  }
+}
