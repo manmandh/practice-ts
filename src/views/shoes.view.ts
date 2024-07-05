@@ -4,6 +4,7 @@ import DetailController from "../controllers/detail.controller";
 import LoginController from "../controllers/login.controller";
 import ProductAllController from "../controllers/product-all.controller";
 import RegisterController from "../controllers/register.controller";
+import { Product } from "../resources/types/product";
 import Router from "../routes";
 import ChangePasswordService from "../services/change-password.service";
 import DashboardService from "../services/dashboard.service";
@@ -13,8 +14,11 @@ import ProductAllService from "../services/product-all.service";
 import RegisterService from "../services/register.service";
 import { Controller } from "../utils/common";
 import ChangePasswordView from "./change-password.view";
+import Pagination from "./components/pagination";
 import ProductDetail from "./components/product_detail";
+import ProductHeader from "./components/product_header";
 import ProductHeader_Two from "./components/product_header_two";
+import ShoesTable from "./components/shoes_table";
 import DashboardView from "./dashboard.view";
 import DetailView from "./detail.view";
 import Footer from "./layouts/footer";
@@ -91,6 +95,13 @@ class ShoesView {
       controller: ProductAllController,
       service: ProductAllService,
     });
+    // this.router.define({
+    //   path: "/product/table",
+    //   element: this.ProductTable(),
+    //   view: ProductsView,
+    //   controller: ProductsController,
+    //   service: ProductsService,
+    // });
   }
 
   ProductDetails() {
@@ -164,29 +175,29 @@ class ShoesView {
     return element;
   }
 
-  // ProductTable() {
-  //   const bodyFooter = `
-  //     <div class="body__footer">
-  //       ${ProductHeader()}
-  //       ${ShoesTable()}
-  //       ${Pagination()}
-  //       ${Footer()}
-  //     </div>
-  //   `;
-  //   const main = `
-  //     <main class="main">
-  //       ${Header()}
-  //       ${bodyFooter}
-  //     </main>
-  //   `;
-  //   const element = `
-  //     <div class="container">
-  //       ${SideBar()}
-  //       ${main}
-  //     </div>
-  //   `;
-  //   return element;
-  // }
+  ProductTable(products: Product[]): string {
+    const bodyFooter = `
+      <div class="body__footer">
+        ${ProductHeader()}
+        ${ShoesTable(products)}
+        ${Pagination()}
+        ${Footer()}
+      </div>
+    `;
+    const main = `
+      <main class="main">
+        ${Header()}
+        ${bodyFooter}
+      </main>
+    `;
+    const element = `
+      <div class="container">
+        ${SideBar()}
+        ${main}
+      </div>
+    `;
+    return element;
+  }
 }
 
 export default ShoesView;
