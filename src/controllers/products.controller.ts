@@ -1,13 +1,8 @@
-import ProductsService from "../services/products.service";
-import ProductsView from "../views/products.view";
+import { Controller, Service, View } from "../utils/common";
 
-class ProductsController {
-  view: ProductsView;
-  service: ProductsService;
-
-  constructor(view: ProductsView, service: ProductsService) {
-    this.view = view;
-    this.service = service;
+class ProductsController extends Controller {
+  constructor(view: View, service: Service) {
+    super(view, service);
   }
 }
 

@@ -1,7 +1,6 @@
-import { Product } from "../../resources/types/product";
 import TableBody from "./table_row";
 
-const ShoesTable = (products: Product[]): string => {
+const ShoesTable = (): string => {
   return `
     <div class="table-title">
       <p>Recent Purchases </p>
@@ -21,7 +20,7 @@ const ShoesTable = (products: Product[]): string => {
             </tr>
           </thead>
           <tbody>
-            ${TableBody(products)}
+            ${TableBody()}
           </tbody>
       </table>
     </div>
