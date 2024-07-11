@@ -12,6 +12,7 @@ export class Service {
 
 export class Controller {
   constructor(view: View, service: Service) {
-    console.log("Controller initialized with view and service:", view, service);
+    view;
+    service;
   }
 }

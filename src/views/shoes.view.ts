@@ -3,14 +3,15 @@ import DashboardController from "../controllers/dashboard.controller";
 import DetailController from "../controllers/detail.controller";
 import LoginController from "../controllers/login.controller";
 import ProductAllController from "../controllers/product-all.controller";
+import ProductsController from "../controllers/products.controller";
 import RegisterController from "../controllers/register.controller";
-import { Product } from "../resources/types/product";
 import Router from "../routes";
 import ChangePasswordService from "../services/change-password.service";
 import DashboardService from "../services/dashboard.service";
 import DetailService from "../services/detail.service";
 import LoginService from "../services/login.service";
 import ProductAllService from "../services/product-all.service";
+import ProductsService from "../services/products.service";
 import RegisterService from "../services/register.service";
 import { Controller } from "../utils/common";
 import ChangePasswordView from "./change-password.view";
@@ -29,16 +30,21 @@ import changePassword from "./pages/change-password";
 import loginForm from "./pages/login";
 import registerForm from "./pages/register";
 import ProductAllView from "./product-all.view";
+import ProductsView from "./products.view";
 import RegisterView from "./register.view";
 
 class ShoesView {
   main: Element;
   router: Router;
+  toastList: HTMLElement;
 
   constructor() {
     this.main = document.querySelector("#root")!;
     const container = document.createElement("div");
     container.className = "container";
+    this.toastList = document.createElement("ul");
+    this.toastList.classList.add("notifications");
+    this.main.appendChild(this.toastList);
     this.router = new Router();
 
     this.init();
@@ -95,13 +101,13 @@ class ShoesView {
       controller: ProductAllController,
       service: ProductAllService,
     });
-    // this.router.define({
-    //   path: "/product/table",
-    //   element: this.ProductTable(),
-    //   view: ProductsView,
-    //   controller: ProductsController,
-    //   service: ProductsService,
-    // });
+    this.router.define({
+      path: "/product/table",
+      element: this.ProductTable(),
+      view: ProductsView,
+      controller: ProductsController,
+      service: ProductsService,
+    });
   }
 
   ProductDetails() {
@@ -175,11 +181,11 @@ class ShoesView {
     return element;
   }
 
-  ProductTable(products: Product[]): string {
+  ProductTable(): string {
     const bodyFooter = `
       <div class="body__footer">
         ${ProductHeader()}
-        ${ShoesTable(products)}
+        ${ShoesTable()}
         ${Pagination()}
         ${Footer()}
       </div>
