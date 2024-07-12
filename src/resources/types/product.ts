@@ -1,5 +1,5 @@
 export interface Product {
-  id: string;
+  id: number;
   name: string;
   amount: number;
   category: string;
@@ -7,4 +7,6 @@ export interface Product {
   brand: string;
   status: boolean;
   price: number;
+  salePrice: number;
+  description: string;
 }
