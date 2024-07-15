@@ -1,12 +1,20 @@
 export interface Product {
   id: number;
   name: string;
-  amount: number;
+  description: string;
   category: string;
-  image: string;
   brand: string;
-  status: boolean;
+  amount: number;
   price: number;
   salePrice: number;
-  description: string;
+  imageUrl: string;
+  image?: File | null;
+  status?: string;
+}
+
+export interface MyFile extends File {
+  lastModified: number;
+  webkitRelativePath: string;
+  arrayBuffer(): Promise<ArrayBuffer>;
+  slice(start?: number, end?: number, contentType?: string): Blob;
 }

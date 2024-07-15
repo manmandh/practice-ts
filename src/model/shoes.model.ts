@@ -1,14 +1,14 @@
 class Shoes {
   id: number;
-  brand: string;
   name: string;
+  description: string;
   category: string;
-  status: boolean;
-  image: string;
+  brand: string;
   amount: number;
   price: number;
-  salePrice?: number;
-  description?: string;
+  salePrice: number;
+  image?: File | null;
+  status?: string;
 
   constructor({
     id,
@@ -23,15 +23,15 @@ class Shoes {
     description,
   }: {
     id: number;
-    brand: string;
     name: string;
+    description: string;
     category: string;
-    status: boolean;
-    image: string;
+    brand: string;
     amount: number;
     price: number;
-    salePrice?: number;
-    description?: string;
+    salePrice: number;
+    image?: File | null;
+    status?: string;
   }) {
     this.id = id;
     this.brand = brand;

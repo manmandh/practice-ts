@@ -4,9 +4,9 @@ export type RouteConfig = {
   path: string;
   element: string;
   params?: string[];
-  controller: Controller;
-  view: View;
-  service: Service;
+  controller: { new (view: View, service: Service): Controller };
+  view: { new (): View };
+  service: { new (): Service };
   pattern?: RegExp;
 };
 
@@ -42,12 +42,14 @@ class Router {
   // Listen for changes in the URL
   listen(): void {
     // Find matching route
-    const route = this.findRoute();
+    const route = this.findRoute()!;
+    const { controller, view, service } = route;
 
     if (route) {
       const root = document.getElementById("root")!;
 
       root.innerHTML = route.element;
+      new controller(new view(), new service());
 
       // const element =
       //   typeof route.element === "function"
