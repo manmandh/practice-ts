@@ -28,6 +28,14 @@ class DetailService extends Service {
       console.log(error);
     }
   }
+  async updateShoes(id: string, newShoes: Product): Promise<void> {
+    try {
+      await config.patch(`/shoes/${id}`, newShoes);
+    } catch (error) {
+      createToast("error", "Error updating shoes");
+      console.error(error);
+    }
+  }
 }
 
 export default DetailService;
