@@ -177,6 +177,29 @@ class DetailView extends View {
       }
     });
   }
+
+  cancelShoes(): void {
+    const cancelShoesButton = document.getElementById(
+      "btn-cancel"
+    ) as HTMLButtonElement | null;
+    if (cancelShoesButton) {
+      cancelShoesButton.addEventListener("click", () => {
+        this.resetForm();
+      });
+    }
+  }
+
+  resetForm(): void {
+    const inputs = document.querySelectorAll(
+      ".restore-value"
+    ) as NodeListOf<HTMLInputElement>;
+    inputs.forEach((input) => {
+      if (!input.dataset.oldValue) {
+        input.dataset.oldValue = input.value;
+      }
+      input.placeholder = input.dataset.oldValue || "Fill in here";
+    });
+  }
 }
 
 export default DetailView;
