@@ -200,6 +200,80 @@ class DetailView extends View {
       input.placeholder = input.dataset.oldValue || "Fill in here";
     });
   }
+
+  async loadShoesSelected(
+    getShoes: (productId: string) => Promise<Product>
+  ): Promise<void> {
+    try {
+      const params = new URLSearchParams(window.location.search);
+      const productId = params.get("productId");
+      if (!productId) return;
+      const shoes: Product = await getShoes(productId);
+      console.log(shoes);
+      const nameInput = document.getElementById("name") as HTMLInputElement;
+      const descriptionInput = document.getElementById(
+        "description"
+      ) as HTMLInputElement;
+      const categoryInput = document.getElementById(
+        "category"
+      ) as HTMLInputElement;
+      const brandInput = document.getElementById("brand") as HTMLInputElement;
+      const skuIdInput = document.getElementById("sku-id") as HTMLInputElement;
+      const amountInput = document.getElementById("amount") as HTMLInputElement;
+      const priceInput = document.getElementById("price") as HTMLInputElement;
+      const salePriceInput = document.getElementById(
+        "sale-price"
+      ) as HTMLInputElement;
+
+      nameInput.value = shoes.name;
+      descriptionInput.value = shoes.description;
+      categoryInput.value = shoes.category;
+      brandInput.value = shoes.brand;
+      skuIdInput.value = shoes.id.toString();
+      amountInput.value = shoes.amount.toString();
+      priceInput.value = shoes.price.toString();
+      salePriceInput.value = shoes.salePrice.toString();
+
+      const imagePreview =
+        document.querySelectorAll<HTMLImageElement>(".img-preview");
+      imagePreview.forEach((img) => {
+        if (typeof shoes.image === "string") {
+          img.src = shoes.image;
+        } else if (shoes.image instanceof File) {
+          const objectUrl = URL.createObjectURL(shoes.image);
+          img.src = objectUrl;
+        } else {
+          img.src = ""; // Set a default value if shoes.image is null or undefined
+        }
+      });
+    } catch (err) {
+      // createToast('error', 'Error loading selected shoes');
+    }
+  }
+
+  bindDeleteShoes(deleteShoes: (id: number) => Promise<void>): void {
+    const deleteShoesButton = document.getElementById(
+      "btn-delete"
+    ) as HTMLButtonElement | null;
+    if (deleteShoesButton) {
+      deleteShoesButton.addEventListener("click", async () => {
+        const skuIdInput = document.getElementById(
+          "sku-id"
+        ) as HTMLInputElement;
+        const id = Number(skuIdInput.value);
+        const productForm = document.querySelector(
+          ".product__form"
+        ) as HTMLFormElement | null;
+        if (productForm && validateShoes(productForm)) {
+          await deleteShoes(id);
+          createToast("info", "Delete shoes successfully");
+          setTimeout(() => {
+            window.location.href = "/product/table";
+          }, 3000);
+        }
+      });
+    }
+  }
 }
 
 export default DetailView;
