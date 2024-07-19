@@ -274,6 +274,36 @@ class DetailView extends View {
       });
     }
   }
+
+  uploadImage() {
+    const image = document.getElementById("imageUpload") as HTMLInputElement;
+    const imagePreview =
+      document.querySelectorAll<HTMLImageElement>(".img-preview");
+
+    if (image) {
+      image.addEventListener("change", (e) => {
+        const target = e.target as HTMLInputElement;
+        if (target?.files?.length) {
+          const src = URL.createObjectURL(target.files[0]);
+          imagePreview.forEach((img) => {
+            img.src = src;
+          });
+        }
+      });
+    }
+  }
+
+  bindNotification(notifications: string[] = []) {
+    const updateNoti = document.querySelector<HTMLElement>(".noti-list");
+    if (updateNoti) {
+      const notiList = notifications
+        .map((noti) => {
+          return `<p class="noti-para">${noti}</p>`;
+        })
+        .join("");
+      updateNoti.innerHTML = notiList;
+    }
+  }
 }
 
 export default DetailView;
