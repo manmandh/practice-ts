@@ -1,9 +1,17 @@
-import { Controller, Service, View } from "../utils/common";
+// import { Controller} from "../utils/common";
+// import LoginView from "../views/login.view";
 
-class LoginController extends Controller {
-  constructor(view: View, service: Service) {
-    super(view, service);
-  }
-}
+// class LoginController extends Controller {
+//   private view: LoginView
+//   constructor() {
+//     super();
+//     this.view = new LoginView()
+//     this.login();
+//   }
 
-export default LoginController;
+//   login(){
+//     this.view.login()
+//   }
+// }
+
+// export default LoginController;
