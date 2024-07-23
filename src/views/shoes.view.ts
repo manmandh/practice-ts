@@ -13,7 +13,6 @@ import LoginService from "../services/login.service";
 import ProductAllService from "../services/product-all.service";
 import ProductsService from "../services/products.service";
 import RegisterService from "../services/register.service";
-import { Controller } from "../utils/common";
 import ChangePasswordView from "./change-password.view";
 import Pagination from "./components/pagination";
 import ProductDetail from "./components/product_detail";
@@ -44,15 +43,16 @@ class ShoesView {
     container.className = "container";
     this.toastList = document.createElement("ul");
     this.toastList.classList.add("notifications");
-    this.main.appendChild(this.toastList);
+    console.log(this.toastList);
+    this.main.append(container, this.toastList);
     this.router = new Router();
 
     this.init();
 
     const router = this.router.findRoute()!;
     if (router) {
-      const { view, service } = router;
-      new Controller(view, service);
+      const { controller } = router;
+      new controller();
     }
 
     this.router.listen();

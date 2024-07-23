@@ -1,17 +1,22 @@
-// import { Controller} from "../utils/common";
-// import LoginView from "../views/login.view";
+import LoginService from "../services/login.service";
+import { Controller } from "../utils/common";
+import LoginView from "../views/login.view";
 
-// class LoginController extends Controller {
-//   private view: LoginView
-//   constructor() {
-//     super();
-//     this.view = new LoginView()
-//     this.login();
-//   }
+class LoginController extends Controller {
+  private view: LoginView;
+  private service: LoginService;
 
-//   login(){
-//     this.view.login()
-//   }
-// }
+  constructor() {
+    super();
+    this.view = new LoginView();
+    this.service = new LoginService();
 
-// export default LoginController;
+    this.login();
+  }
+
+  login() {
+    this.view.login(this.service.getUser);
+  }
+}
+
+export default LoginController;

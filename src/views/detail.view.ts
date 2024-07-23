@@ -11,7 +11,7 @@ class DetailView extends View {
 
   async bindAddShoes(
     addShoes: (shoes: Product) => Promise<void>,
-    getShoes: (id: number) => Promise<Product | undefined>
+    getShoes: (id: string) => Promise<Product | undefined>
   ): Promise<void> {
     const addShoesButton = document.getElementById(
       "btn-add"
@@ -26,8 +26,7 @@ class DetailView extends View {
       )?.value;
       const brand = (document.getElementById("brand") as HTMLInputElement)
         ?.value;
-      const id = +(document.getElementById("sku-id") as HTMLInputElement)
-        ?.value;
+      const id = (document.getElementById("sku-id") as HTMLInputElement)?.value;
       const amount = +(document.getElementById("amount") as HTMLInputElement)
         ?.value;
       const price = +(document.getElementById("price") as HTMLInputElement)
@@ -128,7 +127,7 @@ class DetailView extends View {
       ) as HTMLFormElement;
 
       if (validateShoes(productForm)) {
-        const id = +idInput.value;
+        const id = idInput.value;
         const name = nameInput.value;
         const description = descriptionInput.value;
         const category = categoryInput.value;
@@ -202,13 +201,13 @@ class DetailView extends View {
   }
 
   async loadShoesSelected(
-    getShoes: (productId: string) => Promise<Product>
+    getShoes: (productId: string) => Promise<Product | undefined>
   ): Promise<void> {
     try {
       const params = new URLSearchParams(window.location.search);
       const productId = params.get("productId");
       if (!productId) return;
-      const shoes: Product = await getShoes(productId);
+      const shoes = await getShoes(productId);
       console.log(shoes);
       const nameInput = document.getElementById("name") as HTMLInputElement;
       const descriptionInput = document.getElementById(
@@ -224,6 +223,7 @@ class DetailView extends View {
       const salePriceInput = document.getElementById(
         "sale-price"
       ) as HTMLInputElement;
+      if (!shoes) return;
 
       nameInput.value = shoes.name;
       descriptionInput.value = shoes.description;
@@ -295,6 +295,7 @@ class DetailView extends View {
 
   bindNotification(notifications: string[] = []) {
     const updateNoti = document.querySelector<HTMLElement>(".noti-list");
+    console.log(updateNoti);
     if (updateNoti) {
       const notiList = notifications
         .map((noti) => {

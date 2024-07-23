@@ -1,8 +1,15 @@
-import { Controller, Service, View } from "../utils/common";
+import ProductAllService from "../services/product-all.service";
+import { Controller } from "../utils/common";
+import ProductAllView from "../views/product-all.view";
 
 class ProductAllController extends Controller {
-  constructor(view: View, service: Service) {
-    super(view, service);
+  private view: ProductAllView;
+  private service: ProductAllService;
+
+  constructor() {
+    super();
+    this.view = new ProductAllView();
+    this.service = new ProductAllService();
   }
 }
 

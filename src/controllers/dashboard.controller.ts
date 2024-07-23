@@ -1,8 +1,8 @@
-import { Controller, Service, View } from "../utils/common";
+import { Controller } from "../utils/common";
 
 class DashboardController extends Controller {
-  constructor(view: View, service: Service) {
-    super(view, service);
+  constructor() {
+    super();
   }
 }
 

@@ -1,4 +1,4 @@
-import { Product } from "../resources/types/product";
+import Shoes from "../model/shoes.model";
 import { View } from "../utils/common";
 import TableBody from "./components/table_row";
 
@@ -7,7 +7,7 @@ class ProductsView extends View {
     super();
   }
 
-  bindTable(shoes: Product[]): void {
+  bindTable(shoes: Shoes[]): void {
     const table = document.querySelector(".table-content table");
     if (!table) return;
 

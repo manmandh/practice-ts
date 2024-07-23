@@ -46,7 +46,7 @@ class Router {
     const { controller } = route;
 
     if (route) {
-      const root = document.getElementById("root")!;
+      const root = document.querySelector("#root > .container")!;
 
       root.innerHTML = route.element;
       new controller();

@@ -8,7 +8,7 @@ class DetailService extends Service {
     super();
   }
 
-  async getShoes(id: number): Promise<Product | undefined> {
+  async getShoes(id: string): Promise<Product | undefined> {
     try {
       const { data } = await config.get<Product[]>(`/shoes`, {
         params: { id },

@@ -30,6 +30,8 @@ class LoginView extends View {
         'input[type="checkbox"]:checked'
       );
 
+      console.log(email, password, accepts);
+
       if (accepts.length < 1) {
         createToast("warning", "You need to agree to the policy");
         return;
