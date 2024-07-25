@@ -21,6 +21,28 @@ class ProductsService extends Service {
       createToast("error", "Error fetching all shoes");
     }
   }
+
+  async searchShoes(name: string): Promise<Shoes[] | undefined> {
+    try {
+      const { data } = await config.get<Shoes[]>("/shoes", {
+        params: {
+          q: name,
+        },
+      });
+      return data;
+    } catch (error: unknown) {
+      createToast("error", "Error searching shoes");
+      return undefined;
+    }
+  }
+
+  async updateStatus(productId: string, status: string): Promise<void> {
+    try {
+      await config.patch(`/shoes/${productId}`, { status });
+    } catch (error: unknown) {
+      createToast("error", "Error updating status");
+    }
+  }
 }
 
 export default ProductsService;

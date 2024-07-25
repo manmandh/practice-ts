@@ -1,3 +1,4 @@
+import { toggleMenu } from "../helper/menu";
 import config from "../api/config";
 import { validateShoes } from "../helper/validation";
 import { MyFile, Product } from "../resources/types/product";
@@ -7,6 +8,7 @@ import { createToast } from "./components/handle_toast";
 class DetailView extends View {
   constructor() {
     super();
+    toggleMenu();
   }
 
   async bindAddShoes(

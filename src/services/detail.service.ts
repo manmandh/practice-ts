@@ -28,12 +28,33 @@ class DetailService extends Service {
       console.log(error);
     }
   }
+
   async updateShoes(id: string, newShoes: Product): Promise<void> {
     try {
       await config.patch(`/shoes/${id}`, newShoes);
     } catch (error) {
       createToast("error", "Error updating shoes");
       console.error(error);
+    }
+  }
+
+  async addNoti(id: string, notifications: Notification[]): Promise<void> {
+    try {
+      await config.patch(`/users/${id}`, { notifications });
+    } catch (error) {
+      createToast("error", "Error fetching user to notification");
+    }
+  }
+
+  async deleteShoes(id: string): Promise<void> {
+    try {
+      await config.delete(`/shoes/${id}`, {
+        params: {
+          id,
+        },
+      });
+    } catch (error) {
+      createToast("error", "Error deleting shoes");
     }
   }
 }
