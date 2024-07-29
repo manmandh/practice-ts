@@ -1,17 +1,15 @@
 import Shoes from "../model/shoes.model";
 import TableBody from "./components/table_row";
 import { View } from "../utils/common";
-import { toggleMenu } from "../helper/menu";
 
 class ProductsView extends View {
   private itemsPerPage: number;
   private allShoes: Shoes[] = [];
   private totalPages: number = 0;
-  private updateStatus:
-    | ((productId: string, status: boolean) => void)
-    | undefined;
 
-  constructor() {
+  constructor(
+    private updateStatus: (productId: string, status: boolean) => Promise<void>
+  ) {
     super();
     this.itemsPerPage = 8;
     this.updateURLParameter();
@@ -20,7 +18,7 @@ class ProductsView extends View {
       ".sidebar__menu--item:last-child"
     ) as HTMLElement;
     lastSidebarItem?.classList.add("active");
-    toggleMenu();
+    // toggleMenu();
   }
 
   bindTable(shoes: Shoes[]): void {
@@ -66,11 +64,7 @@ class ProductsView extends View {
     });
   }
 
-  async showTable(
-    shoes: Shoes[],
-    updateStatus: (productId: string, status: boolean) => void
-  ): Promise<void> {
-    this.updateStatus = updateStatus;
+  async showTable(shoes: Shoes[]): Promise<void> {
     this.allShoes = shoes;
     this.updatePage();
     this.handlePagination();
@@ -103,8 +97,9 @@ class ProductsView extends View {
 
   private bindPaginationButtons = (): void => {
     const paginationButtons = document.querySelectorAll(
-      ".pagination-btn"
+      ".pagination > button"
     ) as NodeListOf<HTMLElement>;
+    console.log(paginationButtons);
     let currentPage = this.getCurrentPageFromURL();
     const maxDisplayedButtons = 10;
     let numButtonsToShow = Math.min(maxDisplayedButtons, this.totalPages);
@@ -115,12 +110,13 @@ class ProductsView extends View {
 
     paginationButtons.forEach((button, index) => {
       button.style.display = index < numButtonsToShow ? "block" : "none";
-      button.addEventListener("click", () => {
+      button.onclick = () => {
         const buttonText = button.innerText.toLowerCase();
         if (buttonText === "next") {
           const currentButton = Array.from(paginationButtons).findIndex(
             (btn) => btn.id === "current"
           );
+          console.log(currentButton);
           if (
             currentButton >= 0 &&
             currentButton + 1 < paginationButtons.length
@@ -142,7 +138,7 @@ class ProductsView extends View {
         this.updateURLParameter(currentPage);
         this.updatePage();
         this.toggleNextButtonVisibility(currentPage, this.totalPages);
-      });
+      };
     });
   };
 
@@ -193,45 +189,45 @@ class ProductsView extends View {
     const notiList = notifications
       .map((noti: string) => `<p class="noti-para">${noti}</p>`)
       .join("");
-    updateNoti.innerHTML = notiList;
+    updateNoti && (updateNoti.innerHTML = notiList);
   }
 
-  private debounce<T extends (...args: any[]) => void>(
-    func: T,
-    delay: number
-  ): (...args: Parameters<T>) => void {
-    let timeoutId: number;
-    return (...args: Parameters<T>): void => {
-      if (timeoutId) {
-        clearTimeout(timeoutId);
-      }
-      timeoutId = window.setTimeout(() => {
-        func(...args);
-      }, delay);
-    };
-  }
+  // private debounce<T extends (...args: any[]) => void>(
+  //   func: T,
+  //   delay: number
+  // ): (...args: Parameters<T>) => void {
+  //   let timeoutId: number;
+  //   return (...args: Parameters<T>): void => {
+  //     if (timeoutId) {
+  //       clearTimeout(timeoutId);
+  //     }
+  //     timeoutId = window.setTimeout(() => {
+  //       func(...args);
+  //     }, delay);
+  //   };
+  // }
 
-  handleSearch(searchShoes: (name: string) => Promise<Shoes[]>): void {
-    const searchIcon = document.getElementById("searchIcon") as HTMLElement;
-    const searchBoxLayout = document.querySelector(
-      ".header__search--input"
-    ) as HTMLElement;
-    const searchInput = document.getElementById(
-      "searchInput"
-    ) as HTMLInputElement;
+  // handleSearch(searchShoes: (name: string) => Promise<Shoes[]>): void {
+  //   const searchIcon = document.getElementById("searchIcon") as HTMLElement;
+  //   const searchBoxLayout = document.querySelector(
+  //     ".header__search--input"
+  //   ) as HTMLElement;
+  //   const searchInput = document.getElementById(
+  //     "searchInput"
+  //   ) as HTMLInputElement;
 
-    searchIcon.addEventListener("click", () => {
-      searchBoxLayout.classList.toggle("show");
-    });
+  //   searchIcon.addEventListener("click", () => {
+  //     searchBoxLayout.classList.toggle("show");
+  //   });
 
-    const debounceSearch = this.debounce(async (event: Event) => {
-      const searchTerm = (event.target as HTMLInputElement).value.trim();
-      const data = await searchShoes(searchTerm);
-      this.updatePage(data);
-    }, 500);
+  //   const debounceSearch = this.debounce(async (event: Event) => {
+  //     const searchTerm = (event.target as HTMLInputElement).value.trim();
+  //     const data = await searchShoes(searchTerm);
+  //     this.updatePage(data);
+  //   }, 500);
 
-    searchInput.addEventListener("input", debounceSearch);
-  }
+  //   searchInput.addEventListener("input", debounceSearch);
+  // }
 
   logout(): void {
     const selects = document.querySelector(

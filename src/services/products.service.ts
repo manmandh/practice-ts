@@ -22,7 +22,7 @@ class ProductsService extends Service {
     }
   }
 
-  async searchShoes(name: string): Promise<Shoes[] | undefined> {
+  async searchShoes(name: string): Promise<Shoes[]> {
     try {
       const { data } = await config.get<Shoes[]>("/shoes", {
         params: {
@@ -32,11 +32,11 @@ class ProductsService extends Service {
       return data;
     } catch (error: unknown) {
       createToast("error", "Error searching shoes");
-      return undefined;
+      return [];
     }
   }
 
-  async updateStatus(productId: string, status: string): Promise<void> {
+  async updateStatus(productId: string, status: boolean): Promise<void> {
     try {
       await config.patch(`/shoes/${productId}`, { status });
     } catch (error: unknown) {

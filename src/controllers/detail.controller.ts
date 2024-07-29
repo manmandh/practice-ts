@@ -20,7 +20,7 @@ class DetailController extends Controller {
 
     this.view.loadShoesSelected(this.service.getShoes);
     this.view.bindAddShoes(this.service.addShoes, this.service.getShoes);
-    // this.view.bindDeleteShoes(this.service.)
+    this.view.bindDeleteShoes(this.service.deleteShoes);
     this.view.uploadImage();
     this.view.updateShoesUI();
   }

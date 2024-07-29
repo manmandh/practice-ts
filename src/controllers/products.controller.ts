@@ -8,16 +8,26 @@ class ProductsController extends Controller {
 
   constructor() {
     super();
-    this.view = new ProductsView();
     this.service = new ProductsService();
+    this.view = new ProductsView(this.service.updateStatus);
 
     this.renderShoes();
+    this.showTable();
+
+    // this.view.handleSearch(this.service.searchShoes)
   }
 
   private async renderShoes() {
     const shoes = await this.service.getAllShoes();
     if (shoes) {
       this.view.bindTable(shoes);
+    }
+  }
+
+  private async showTable() {
+    const shoes = await this.service.getAllShoes();
+    if (shoes) {
+      this.view.showTable(shoes);
     }
   }
 }

@@ -253,7 +253,7 @@ class DetailView extends View {
     }
   }
 
-  bindDeleteShoes(deleteShoes: (id: number) => Promise<void>): void {
+  bindDeleteShoes(deleteShoes: (id: string) => Promise<void>): void {
     const deleteShoesButton = document.getElementById(
       "btn-delete"
     ) as HTMLButtonElement | null;
@@ -262,7 +262,7 @@ class DetailView extends View {
         const skuIdInput = document.getElementById(
           "sku-id"
         ) as HTMLInputElement;
-        const id = Number(skuIdInput.value);
+        const id = skuIdInput.value;
         const productForm = document.querySelector(
           ".product__form"
         ) as HTMLFormElement | null;
