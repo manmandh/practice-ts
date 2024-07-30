@@ -7,14 +7,6 @@ export interface Product {
   amount: number;
   price: number;
   salePrice: number;
-  imageUrl: string;
-  image?: File | null;
+  image: string;
   status?: string;
-}
-
-export interface MyFile extends File {
-  lastModified: number;
-  webkitRelativePath: string;
-  arrayBuffer(): Promise<ArrayBuffer>;
-  slice(start?: number, end?: number, contentType?: string): Blob;
 }

@@ -135,18 +135,6 @@
       "description": "8gb ram "
     },
     {
-      "id": "99",
-      "brand": "Senaetr",
-      "name": "do homework part 2",
-      "category": "sg 5 ",
-      "status": true,
-      "image": "https://i.ibb.co/kcpNzhH/Screenshot-from-2024-02-22-13-44-12.png",
-      "amount": "99",
-      "price": "499",
-      "salePrice": "435",
-      "description": "fa wt 5"
-    },
-    {
       "id": "88",
       "brand": "Phone",
       "name": "iphone",
@@ -311,8 +299,19 @@
       "amount": 22,
       "price": 44,
       "salePrice": 33,
-      "imageUrl": "https://i.ibb.co/QDddW8m/background.jpg",
-      "image": {},
+      "image": "https://i.ibb.co/QDddW8m/background.jpg",
+      "status": "active"
+    },
+    {
+      "id": "555",
+      "name": "huawei",
+      "description": "adr pro ",
+      "category": "adr6777777",
+      "brand": "phone",
+      "amount": 555,
+      "price": 879,
+      "salePrice": 577,
+      "image": "https://i.ibb.co/z7BGG6K/Codai.png",
       "status": "active"
     }
   ],
@@ -393,7 +392,7 @@
       "firstName": "Thuyen",
       "lastName": "Yiwei",
       "email": "yiwei@gmail.com",
-      "password": "Yiwei@12345",
+      "password": "Yiwei@123456",
       "id": "10",
       "notifications": [
         "You added iphone 14 promax at 2/24/2024, 8:31:18 PM",

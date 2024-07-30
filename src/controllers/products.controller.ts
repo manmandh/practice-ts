@@ -14,6 +14,8 @@ class ProductsController extends Controller {
     this.renderShoes();
     this.showTable();
 
+    this.view.logout();
+
     // this.view.handleSearch(this.service.searchShoes)
   }
 

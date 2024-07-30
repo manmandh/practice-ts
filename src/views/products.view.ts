@@ -1,6 +1,7 @@
 import Shoes from "../model/shoes.model";
 import TableBody from "./components/table_row";
 import { View } from "../utils/common";
+import { authen } from "../utils/authen";
 
 class ProductsView extends View {
   private itemsPerPage: number;
@@ -11,6 +12,7 @@ class ProductsView extends View {
     private updateStatus: (productId: string, status: boolean) => Promise<void>
   ) {
     super();
+    authen();
     this.itemsPerPage = 8;
     this.updateURLParameter();
     this.bindNotification();

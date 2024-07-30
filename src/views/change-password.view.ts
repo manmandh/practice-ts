@@ -2,11 +2,13 @@ import User from "../model/user.model";
 import validateFormPassword from "../helper/validation";
 import { View } from "../utils/common";
 import { createToast } from "./components/handle_toast";
+import { authen } from "../utils/authen";
 
 class ChangePasswordView extends View {
   private form?: HTMLFormElement;
   constructor() {
     super();
+    authen();
   }
 
   public changePassword(

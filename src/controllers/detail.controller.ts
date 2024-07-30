@@ -12,7 +12,6 @@ class DetailController extends Controller {
     this.service = new DetailService();
 
     const userJson = localStorage.getItem("user");
-    console.log(userJson);
     if (userJson) {
       const user = JSON.parse(userJson);
       this.view.bindNotification(user.notifications);

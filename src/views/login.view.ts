@@ -8,6 +8,9 @@ class LoginView extends View {
   constructor() {
     super();
     this.formLogin = document.querySelector(".form__right");
+
+    const user = localStorage.getItem("users");
+    if (user) window.location.pathname = "/product/table";
   }
 
   login(

@@ -1,7 +1,9 @@
+import { authen } from "../utils/authen";
 import { toggleMenu } from "../helper/menu";
 
 class AllProductsView {
   constructor() {
+    authen();
     const sidebarMenuItem = document.querySelector(
       ".sidebar__menu--item:nth-child(2)"
     ) as HTMLElement;

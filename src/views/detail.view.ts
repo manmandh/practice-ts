@@ -1,14 +1,17 @@
 import { toggleMenu } from "../helper/menu";
 import config from "../api/config";
 import { validateShoes } from "../helper/validation";
-import { MyFile, Product } from "../resources/types/product";
+import { Product } from "../resources/types/product";
 import { View } from "../utils/common";
 import { createToast } from "./components/handle_toast";
+import { authen } from "../utils/authen";
 
 class DetailView extends View {
   constructor() {
     super();
+    authen();
     toggleMenu();
+    this.cancelShoes();
   }
 
   async bindAddShoes(
@@ -51,8 +54,7 @@ class DetailView extends View {
           return;
         }
 
-        let imageUrl = "";
-        let image: MyFile | null = null;
+        let image = "";
         if (imageInput.files?.length) {
           const form = new FormData();
           form.append("image", imageInput.files?.[0] as Blob);
@@ -65,8 +67,7 @@ class DetailView extends View {
             }
           );
           const imageData = await response.json();
-          imageUrl = imageData.data.url;
-          image = imageInput.files?.[0] as MyFile | null;
+          image = imageData.data.url;
         }
 
         const newShoes: Product = {
@@ -78,7 +79,6 @@ class DetailView extends View {
           amount,
           price,
           salePrice,
-          imageUrl,
           image,
           status: "active",
         };
@@ -138,7 +138,7 @@ class DetailView extends View {
         const price = +priceInput.value;
         const salePrice = +salePriceInput.value;
 
-        let imageUrl = "";
+        let image = "";
         if (imageInput.files?.length) {
           const form = new FormData();
           form.append("image", imageInput.files?.[0] as Blob);
@@ -151,7 +151,7 @@ class DetailView extends View {
             }
           );
           const data = await response.json();
-          imageUrl = data.data.url;
+          image = data.data.url;
         }
 
         const newShoes: Product = {
@@ -163,7 +163,7 @@ class DetailView extends View {
           amount,
           price,
           salePrice,
-          imageUrl,
+          image,
           status: "active",
         };
 
@@ -183,11 +183,9 @@ class DetailView extends View {
     const cancelShoesButton = document.getElementById(
       "btn-cancel"
     ) as HTMLButtonElement | null;
-    if (cancelShoesButton) {
-      cancelShoesButton.addEventListener("click", () => {
-        this.resetForm();
-      });
-    }
+    cancelShoesButton?.addEventListener("click", () => {
+      this.resetForm();
+    });
   }
 
   resetForm(): void {
@@ -195,10 +193,7 @@ class DetailView extends View {
       ".restore-value"
     ) as NodeListOf<HTMLInputElement>;
     inputs.forEach((input) => {
-      if (!input.dataset.oldValue) {
-        input.dataset.oldValue = input.value;
-      }
-      input.placeholder = input.dataset.oldValue || "Fill in here";
+      input.value = "";
     });
   }
 
@@ -241,9 +236,6 @@ class DetailView extends View {
       imagePreview.forEach((img) => {
         if (typeof shoes.image === "string") {
           img.src = shoes.image;
-        } else if (shoes.image instanceof File) {
-          const objectUrl = URL.createObjectURL(shoes.image);
-          img.src = objectUrl;
         } else {
           img.src = ""; // Set a default value if shoes.image is null or undefined
         }
