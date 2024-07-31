@@ -8,13 +8,14 @@ class RegisterService extends Service {
   }
 
   async addUser(
+    id: string,
     firstName: string,
     lastName: string,
     email: string,
     password: string
   ): Promise<void> {
     try {
-      const newUser = new User({ firstName, lastName, email, password });
+      const newUser = new User({ id, firstName, lastName, email, password });
       console.log(newUser);
       await config.post("/users", newUser);
     } catch (error) {

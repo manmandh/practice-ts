@@ -10,13 +10,14 @@ class User {
   notifications: string[];
 
   constructor({
+    id = "",
     firstName,
     lastName,
     email,
     password,
     notifications = [],
   }: IUser) {
-    this.id = randomID();
+    this.id = id ?? randomID();
     this.firstName = firstName;
     this.lastName = lastName;
     this.email = email;
