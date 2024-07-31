@@ -1,3 +1,4 @@
+import randomID from "../helper/id";
 import { validateForm } from "../helper/validation";
 import { AddUserFunction } from "../resources/types/user";
 import RegisterService from "../services/register.service";
@@ -7,12 +8,19 @@ import { createToast } from "./components/handle_toast";
 class RegisterView extends View {
   private form: HTMLFormElement | null;
   private registerService: RegisterService;
+
   constructor() {
     super();
     this.form = null;
     this.registerService = new RegisterService();
     this.register((firstName, lastName, email, password) =>
-      this.registerService.addUser(firstName, lastName, email, password)
+      this.registerService.addUser(
+        randomID(),
+        firstName,
+        lastName,
+        email,
+        password
+      )
     );
   }
 

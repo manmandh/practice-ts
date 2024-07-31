@@ -478,6 +478,14 @@
       "email": "datn@gmail.com",
       "password": "Dat@123456",
       "notifications": []
+    },
+    {
+      "id": "67435963",
+      "firstName": "hello",
+      "lastName": "dat",
+      "email": "hello@gmail.com",
+      "password": "Hello@12345",
+      "notifications": []
     }
   ]
 }
