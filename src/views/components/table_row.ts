@@ -1,6 +1,6 @@
-import { Product } from "../../resources/types/product";
+import Shoes from "../../model/shoes.model";
 
-const TableRow = (row: Product) => {
+const TableRow = (row: Shoes) => {
   return `
     <tr class="product-row" id="${row.id}">
       <td>
@@ -25,7 +25,7 @@ const TableRow = (row: Product) => {
   `;
 };
 
-const TableBody = (products: Product[] = []): string => {
+const TableBody = (products: Shoes[] = []): string => {
   return `
     ${products.map((product) => TableRow(product)).join("")}
   `;

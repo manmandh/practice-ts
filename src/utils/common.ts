@@ -11,8 +11,5 @@ export class Service {
 }
 
 export class Controller {
-  constructor(view: View, service: Service) {
-    view;
-    service;
-  }
+  constructor() {}
 }

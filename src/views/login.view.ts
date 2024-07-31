@@ -8,6 +8,9 @@ class LoginView extends View {
   constructor() {
     super();
     this.formLogin = document.querySelector(".form__right");
+
+    const user = localStorage.getItem("users");
+    if (user) window.location.pathname = "/product/table";
   }
 
   login(
@@ -29,6 +32,8 @@ class LoginView extends View {
       const accepts = document.querySelectorAll(
         'input[type="checkbox"]:checked'
       );
+
+      console.log(email, password, accepts);
 
       if (accepts.length < 1) {
         createToast("warning", "You need to agree to the policy");

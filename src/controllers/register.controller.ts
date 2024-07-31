@@ -1,8 +1,10 @@
-import { Controller, Service, View } from "../utils/common";
+import { Controller } from "../utils/common";
+import RegisterView from "../views/register.view";
 
 class RegisterController extends Controller {
-  constructor(view: View, service: Service) {
-    super(view, service);
+  constructor() {
+    super();
+    new RegisterView();
   }
 }
 

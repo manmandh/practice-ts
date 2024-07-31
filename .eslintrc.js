@@ -9,7 +9,7 @@ module.exports = {
   rules: {
     "no-mixed-spaces-and-tabs": "error",
     "@typescript-eslint/ban-types": "error",
-    "@typescript-eslint/no-explicit-any": "error",
+    "@typescript-eslint/no-explicit-any": ["error", { ignoreRestArgs: true }],
     "no-undef": "off",
   },
 };

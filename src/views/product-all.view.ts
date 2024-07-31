@@ -1,9 +1,23 @@
-import { View } from "../utils/common";
+import { authen } from "../utils/authen";
+import { toggleMenu } from "../helper/menu";
 
-class ProductAllView extends View {
+class AllProductsView {
   constructor() {
-    super();
+    authen();
+    const sidebarMenuItem = document.querySelector(
+      ".sidebar__menu--item:nth-child(2)"
+    ) as HTMLElement;
+    sidebarMenuItem?.classList.add("active");
+    this.ProductAll();
+    toggleMenu();
+  }
+
+  private ProductAll(): void {
+    const btn = document.querySelector(".btn") as HTMLButtonElement;
+    btn?.addEventListener("click", () => {
+      window.location.pathname = "product/detail";
+    });
   }
 }
 
-export default ProductAllView;
+export default AllProductsView;

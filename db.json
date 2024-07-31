@@ -4,14 +4,15 @@
       "image": "/avt-1.3cd62d23.jpg",
       "id": "1",
       "brand": "Bessie Cooper",
-      "name": "Adidas Ultra boost",
+      "name": "Adidas Ultra boosttttttt",
       "category": "PayPal",
       "status": true,
-      "amount": "445",
-      "price": "345",
+      "amount": 445,
+      "price": 345,
       "description": "efffffff",
-      "salePrice": "36464",
-      "true": ""
+      "salePrice": 36464,
+      "true": "",
+      "imageUrl": ""
     },
     {
       "image": "/avt-2.3bdfd00a.jpg",
@@ -19,7 +20,7 @@
       "brand": "Bessie Cooper",
       "name": "Adidas Ultra boost",
       "category": "Pioneer",
-      "status": false,
+      "status": true,
       "amount": 70,
       "price": 169,
       "description": "abcde",
@@ -43,7 +44,7 @@
       "brand": "Bressi Cooper",
       "name": "adidas",
       "category": "PayPal",
-      "status": false,
+      "status": true,
       "amount": 70,
       "price": 169,
       "description": "abcde",
@@ -55,7 +56,7 @@
       "brand": "Bressi Cooper",
       "name": "adidas",
       "category": "Cash",
-      "status": true,
+      "status": false,
       "amount": 70,
       "price": 169,
       "description": "abcde",
@@ -67,7 +68,7 @@
       "brand": "Bressi Cooper",
       "name": "adidas",
       "category": "Pioneer",
-      "status": false,
+      "status": true,
       "amount": 70,
       "price": 169,
       "description": "abcde",
@@ -132,18 +133,6 @@
       "price": "334",
       "salePrice": "22",
       "description": "8gb ram "
-    },
-    {
-      "id": "99",
-      "brand": "Senaetr",
-      "name": "do homework part 2",
-      "category": "sg 5 ",
-      "status": true,
-      "image": "https://i.ibb.co/kcpNzhH/Screenshot-from-2024-02-22-13-44-12.png",
-      "amount": "99",
-      "price": "499",
-      "salePrice": "435",
-      "description": "fa wt 5"
     },
     {
       "id": "88",
@@ -300,6 +289,30 @@
       "price": "23",
       "salePrice": "33",
       "description": "Super vippro from"
+    },
+    {
+      "id": "22",
+      "name": "iphone",
+      "description": "hi alo",
+      "category": "Phone",
+      "brand": "Abcde",
+      "amount": 22,
+      "price": 44,
+      "salePrice": 33,
+      "image": "https://i.ibb.co/QDddW8m/background.jpg",
+      "status": "active"
+    },
+    {
+      "id": "555",
+      "name": "huawei",
+      "description": "adr pro ",
+      "category": "adr6777777",
+      "brand": "phone",
+      "amount": 555,
+      "price": 879,
+      "salePrice": 577,
+      "image": "https://i.ibb.co/z7BGG6K/Codai.png",
+      "status": "active"
     }
   ],
   "users": [
@@ -379,7 +392,7 @@
       "firstName": "Thuyen",
       "lastName": "Yiwei",
       "email": "yiwei@gmail.com",
-      "password": "Yiwei@12345",
+      "password": "Yiwei@123456",
       "id": "10",
       "notifications": [
         "You added iphone 14 promax at 2/24/2024, 8:31:18 PM",
@@ -424,6 +437,46 @@
       "lastName": "Ngo",
       "email": "mama@gmail.com",
       "password": "Mama@123456",
+      "notifications": []
+    },
+    {
+      "id": "35747509",
+      "firstName": "Tran",
+      "lastName": "Tran",
+      "email": "datn1@gmail.com",
+      "password": "Dat@123456",
+      "notifications": []
+    },
+    {
+      "id": "11946448",
+      "firstName": "Tran",
+      "lastName": "Tran",
+      "email": "datn1@gmail.com",
+      "password": "Dat@123456",
+      "notifications": []
+    },
+    {
+      "id": "90703553",
+      "firstName": "Dat",
+      "lastName": "Man",
+      "email": "datn@gmail.com",
+      "password": "Man@123456",
+      "notifications": []
+    },
+    {
+      "id": "39882225",
+      "firstName": "Dat",
+      "lastName": "Man",
+      "email": "datn@gmail.com",
+      "password": "Dat@123456",
+      "notifications": []
+    },
+    {
+      "id": "40632818",
+      "firstName": "Dat",
+      "lastName": "Man",
+      "email": "datn@gmail.com",
+      "password": "Dat@123456",
       "notifications": []
     }
   ]
