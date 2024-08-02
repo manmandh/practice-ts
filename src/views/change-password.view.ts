@@ -41,9 +41,7 @@ class ChangePasswordView extends View {
             user.id
           );
           createToast("info", "Change password successfully");
-          setTimeout(() => {
-            window.location.pathname = "/product/table";
-          }, 2000);
+          window.location.pathname = "/product/table";
         } catch (err) {
           console.error(err);
           createToast("warning", "Error. Please try again");

@@ -85,9 +85,8 @@ class DetailView extends View {
 
         await addShoes(newShoes);
         createToast("info", "Add shoes successfully");
-        setTimeout(() => {
-          window.location.href = "/product/table";
-        }, 3000);
+
+        window.location.href = "/product/table";
 
         const storedUser = localStorage.getItem("users");
         const user = storedUser ? JSON.parse(storedUser) : null;
@@ -170,9 +169,7 @@ class DetailView extends View {
         await config.patch(`/shoes/${id}`, newShoes);
 
         createToast("info", "Update shoes successfully");
-        setTimeout(() => {
-          window.location.href = "/product/table";
-        }, 2000);
+        window.location.href = "/product/table";
       } else {
         createToast("error", "Error updating table");
       }
@@ -237,7 +234,7 @@ class DetailView extends View {
         if (typeof shoes.image === "string") {
           img.src = shoes.image;
         } else {
-          img.src = ""; // Set a default value if shoes.image is null or undefined
+          img.src = "";
         }
       });
     } catch (err) {
@@ -258,12 +255,10 @@ class DetailView extends View {
         const productForm = document.querySelector(
           ".product__form"
         ) as HTMLFormElement | null;
-        if (productForm && validateShoes(productForm)) {
+        if (productForm) {
           await deleteShoes(id);
           createToast("info", "Delete shoes successfully");
-          setTimeout(() => {
-            window.location.href = "/product/table";
-          }, 3000);
+          window.location.href = "/product/table";
         }
       });
     }

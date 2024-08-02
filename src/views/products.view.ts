@@ -1,17 +1,15 @@
 import Shoes from "../model/shoes.model";
 import TableBody from "./components/table_row";
-import { View } from "../utils/common";
 import { authen } from "../utils/authen";
 
-class ProductsView extends View {
+class ProductsView {
   private itemsPerPage: number;
   private allShoes: Shoes[] = [];
   private totalPages: number = 0;
 
   constructor(
-    private updateStatus: (productId: string, status: boolean) => Promise<void>
+    private updateStatus?: (productId: string, status: boolean) => Promise<void>
   ) {
-    super();
     authen();
     this.itemsPerPage = 8;
     this.updateURLParameter();
@@ -193,43 +191,6 @@ class ProductsView extends View {
       .join("");
     updateNoti && (updateNoti.innerHTML = notiList);
   }
-
-  // private debounce<T extends (...args: any[]) => void>(
-  //   func: T,
-  //   delay: number
-  // ): (...args: Parameters<T>) => void {
-  //   let timeoutId: number;
-  //   return (...args: Parameters<T>): void => {
-  //     if (timeoutId) {
-  //       clearTimeout(timeoutId);
-  //     }
-  //     timeoutId = window.setTimeout(() => {
-  //       func(...args);
-  //     }, delay);
-  //   };
-  // }
-
-  // handleSearch(searchShoes: (name: string) => Promise<Shoes[]>): void {
-  //   const searchIcon = document.getElementById("searchIcon") as HTMLElement;
-  //   const searchBoxLayout = document.querySelector(
-  //     ".header__search--input"
-  //   ) as HTMLElement;
-  //   const searchInput = document.getElementById(
-  //     "searchInput"
-  //   ) as HTMLInputElement;
-
-  //   searchIcon.addEventListener("click", () => {
-  //     searchBoxLayout.classList.toggle("show");
-  //   });
-
-  //   const debounceSearch = this.debounce(async (event: Event) => {
-  //     const searchTerm = (event.target as HTMLInputElement).value.trim();
-  //     const data = await searchShoes(searchTerm);
-  //     this.updatePage(data);
-  //   }, 500);
-
-  //   searchInput.addEventListener("input", debounceSearch);
-  // }
 
   logout(): void {
     const selects = document.querySelector(
