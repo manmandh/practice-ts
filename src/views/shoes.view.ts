@@ -49,12 +49,6 @@ class ShoesView {
 
     this.init();
 
-    const router = this.router.findRoute()!;
-    if (router) {
-      const { controller } = router;
-      new controller();
-    }
-
     this.router.listen();
   }
 
@@ -125,10 +119,8 @@ class ShoesView {
       </main>
     `;
     const element = `
-      <div class="container">
-        ${SideBar()}
-        ${main}
-      </div>
+      ${SideBar()}
+      ${main}
     `;
     return element;
   }
@@ -147,10 +139,8 @@ class ShoesView {
       </main>
     `;
     const element = `
-      <div class="container">
-        ${SideBar()}
-        ${main}
-      </div>
+      ${SideBar()}
+      ${main}
     `;
     return element;
   }
@@ -173,10 +163,8 @@ class ShoesView {
       </main>
     `;
     const element = `
-      <div class="container">
-        ${SideBar()}
-        ${main}
-      </div>
+      ${SideBar()}
+      ${main}
     `;
     return element;
   }
@@ -197,10 +185,8 @@ class ShoesView {
       </main>
     `;
     const element = `
-      <div class="container">
-        ${SideBar()}
-        ${main}
-      </div>
+      ${SideBar()}
+      ${main}
     `;
     return element;
   }
